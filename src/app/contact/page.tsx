@@ -28,13 +28,13 @@ export default function ContactPage() {
         <div className="min-h-screen bg-black text-white pt-[30vh] pb-20 px-6 md:px-12 font-sans">
 
             {/* Header Section */}
-            <div className="border-b border-white/20 pb-8 mb-32 md:mb-48">
+            <div className="mb-32 md:mb-48">
                 <div className="overflow-hidden">
                     <motion.h1
                         initial={{ y: "110%" }}
                         animate={{ y: 0 }}
                         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                        className="text-[13vw] leading-[0.8] font-black tracking-tighter uppercase mix-blend-exclusion -ml-[0.05em]"
+                        className="text-[13vw] leading-[0.8] font-black tracking-tighter mix-blend-exclusion -ml-[0.05em]"
                     >
                         Get in touch
                     </motion.h1>

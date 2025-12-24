@@ -1,98 +1,201 @@
 "use client";
 
-import { HeroSection } from "@/components/home/hero-section"; // We might want a smaller hero
-import { FilmCard } from "@/components/film-card";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
-const allFilms = [
+const projects = [
     {
         title: "Mabanda",
+        category: "Upcoming Feature",
         year: "2026",
         role: "Lead Actor, Producer",
-        status: "Upcoming" as const,
-        image: "https://images.unsplash.com/photo-1549497558-75c13b28489c?q=80&w=2687&auto=format&fit=crop",
-        slug: "mabanda"
+        image: "/images/work/mabanda.jpg",
+        video: "/videos/mabanda-teaser.mp4", // User to replace
+        slug: "mabanda",
+        size: "large" // Spans full width or large col
     },
     {
         title: "The Fisherman's Diary",
+        category: "Feature Film",
         year: "2020",
-        role: "Lead Actor, Producer",
-        status: "Released" as const,
-        image: "https://images.unsplash.com/photo-1533241240166-70e9dd17fb57?q=80&w=2340&auto=format&fit=crop",
-        slug: "fishermans-diary"
+        role: "Lead Actor",
+        image: "/images/work/fishermans-diary.jpg",
+        video: "/videos/fishermans-diary.mp4",
+        slug: "fishermans-diary",
+        size: "normal"
     },
     {
         title: "Nganu",
+        category: "Feature Film",
         year: "2023",
         role: "Lead Actor, Producer",
-        status: "Released" as const,
-        image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2670&auto=format&fit=crop",
-        slug: "nganu"
+        image: "/images/work/nganu.jpg",
+        video: "/videos/nganu.mp4",
+        slug: "nganu",
+        size: "normal"
     },
     {
-        title: "Side Chic Chronicles",
-        year: "2018",
-        role: "Lead Actor, Producer",
-        status: "Released" as const,
-        image: "https://images.unsplash.com/photo-1616530940355-351fabd9524b?q=80&w=2148&auto=format&fit=crop", // Placeholder
-        slug: "side-chic-chronicles"
+        title: "The Planters Plantation",
+        category: "Feature Film",
+        year: "2022",
+        role: "Executive Producer",
+        image: "/images/work/planters.jpg",
+        video: "/videos/planters.mp4",
+        slug: "planters-plantation",
+        size: "normal"
     },
     {
-        title: "Bed of Clouds",
-        year: "2019",
-        role: "Producer",
-        status: "Released" as const,
-        image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2670&auto=format&fit=crop", // Placeholder
-        slug: "bed-of-clouds"
+        title: "Therapy",
+        category: "Netflix Original",
+        year: "2021",
+        role: "Co-Producer",
+        image: "/images/work/therapy.jpg",
+        video: "/videos/therapy.mp4",
+        slug: "therapy",
+        size: "normal"
     },
     {
-        title: "Coming Soon Project",
+        title: "Coming Soon",
+        category: "In Development",
         year: "2027",
         role: "Director",
-        status: "In Production" as const,
-        image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2525&auto=format&fit=crop", // Placeholder
-        slug: "untitled-project"
+        image: "/images/work/untitled.jpg",
+        video: "",
+        slug: "untitled-project",
+        size: "large"
     }
 ];
 
-export default function FilmographyPage() {
+const ProjectItem = ({ project, index }: { project: typeof projects[0], index: number }) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Auto-play was prevented or video not found
+                });
+            }
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        if (videoRef.current) {
+            videoRef.current.pause();
+        }
+    };
+
     return (
-        <div className="min-h-screen bg-background pt-24 pb-20">
-            <div className="container mx-auto px-4">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
+            className={`group relative w-full ${project.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}`}
+        >
+            <Link href={`/films/${project.slug}`} className="block block-link cursor-pointer">
+                {/* Media Container */}
+                <div
+                    className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-900 mb-6"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    {/* Placeholder Image */}
+                    <div className="absolute inset-0 z-10 pointer-events-none">
+                        <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className={`object-cover transition-all duration-700 ease-[0.16,1,0.3,1] ${isHovered && isVideoLoaded ? 'opacity-0' : 'opacity-100'} ${isHovered ? 'scale-105' : 'scale-100'}`}
+                        />
+                    </div>
 
-                {/* Header */}
-                <div className="mb-16 text-center">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-serif font-bold mb-4"
-                    >
-                        Filmography
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-muted-foreground text-lg max-w-2xl mx-auto"
-                    >
-                        A chronicle of stories told, characters lived, and worlds created.
-                    </motion.p>
+                    {/* Video Layer */}
+                    <div className="absolute inset-0 z-0">
+                        {project.video && (
+                            <video
+                                ref={videoRef}
+                                src={project.video}
+                                muted
+                                loop
+                                playsInline
+                                onCanPlay={() => setIsVideoLoaded(true)}
+                                className="h-full w-full object-cover"
+                            />
+                        )}
+                        {/* Fallback overlay if no video but we want hover effect */}
+                        {/* <div className="absolute inset-0 bg-black/20" /> */}
+                    </div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allFilms.map((film, index) => (
-                        <motion.div
-                            key={film.slug}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <FilmCard {...film} className="h-full min-h-[450px]" />
-                        </motion.div>
-                    ))}
+                {/* Text Info */}
+                <div className="flex justify-between items-start">
+                    <div className="space-y-1">
+                        <div className="overflow-hidden">
+                            <motion.h3
+                                className="text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:text-white/70 transition-colors duration-500"
+                            >
+                                {project.title}
+                            </motion.h3>
+                        </div>
+                        <p className="text-sm font-medium tracking-wide text-white/50 uppercase">{project.category} — {project.year}</p>
+                    </div>
+
+                    <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                        <ArrowUpRight className="text-white w-6 h-6" />
+                    </div>
                 </div>
+            </Link>
+        </motion.div>
+    );
+};
+
+export default function WorkPage() {
+    return (
+        <div className="min-h-screen bg-black text-white pt-[25vh] pb-20 px-6 md:px-12 font-sans">
+
+            {/* Page Header */}
+            <div className="mb-24 md:mb-40">
+                <motion.h1
+                    initial={{ y: "110%" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-[13vw] leading-[0.8] font-black tracking-tighter mix-blend-exclusion -ml-[0.05em]"
+                >
+                    Selected Work
+                </motion.h1>
             </div>
+
+            {/* Works Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+                {projects.map((project, index) => (
+                    <ProjectItem key={project.slug} project={project} index={index} />
+                ))}
+            </div>
+
+            {/* Footer / Contact Link */}
+            <div className="mt-40 text-center">
+                <Link href="/contact" className="inline-block group">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-white border-b border-transparent group-hover:border-white transition-colors duration-300 pb-1"
+                    >
+                        <span className="text-sm font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Start a Project</span>
+                    </motion.div>
+                </Link>
+            </div>
+
         </div>
     );
 }
