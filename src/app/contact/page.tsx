@@ -62,21 +62,21 @@ export default function ContactPage() {
                         <div key={agency.region} className="grid md:grid-cols-2 gap-8 md:gap-0 border-t border-white/10 pt-8 md:pt-0 md:border-none">
                             {/* Region */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-10%" }}
+                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
                                 className="md:pr-12"
                             >
-                                <h3 className="text-sm font-bold uppercase tracking-widest mb-2">{agency.region}</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-widest mb-2 text-white/60">{agency.region}</h3>
                             </motion.div>
 
                             {/* Details */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 + 0.1 }}
+                                viewport={{ once: true, margin: "-10%" }}
+                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 + 0.1 }}
                                 className="space-y-6"
                             >
                                 <h4 className="text-2xl font-bold">{agency.name}</h4>
