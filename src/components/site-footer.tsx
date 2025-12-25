@@ -23,7 +23,7 @@ export function SiteFooter() {
                         transition={{ delay: 0.2 }}
                         className="text-xs uppercase tracking-widest text-white/50 block mb-2"
                     >
-                        Contact & Socials
+                        Contact
                     </motion.span>
                     <motion.div
                         initial={{ scaleX: 0 }}
@@ -50,9 +50,9 @@ export function SiteFooter() {
                     </div>
 
                     {/* Content Grid */}
-                    <div className="grid md:grid-cols-3 gap-12 md:gap-32 max-w-7xl">
+                    <div className="grid md:grid-cols-2 gap-12 md:gap-32 max-w-5xl">
                         {/* Disclaimer */}
-                        <div className="space-y-6 md:col-span-1">
+                        <div className="space-y-6">
                             <motion.h3
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -73,32 +73,8 @@ export function SiteFooter() {
                             </motion.p>
                         </div>
 
-                        {/* Social Links */}
-                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0 md:col-span-1">
-                            <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-8 py-4">Social Presence</h4>
-                            {socials.map((social, i) => (
-                                <motion.a
-                                    key={social.name}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-                                    className="flex justify-between items-center group cursor-pointer py-4 hover:pl-2 transition-all duration-300 border-b border-white/20"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <social.icon className="w-4 h-4 text-white/50 group-hover:text-red-500 transition-colors" />
-                                        <span className="text-xs font-bold uppercase tracking-wider">{social.name}</span>
-                                    </div>
-                                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </motion.a>
-                            ))}
-                        </div>
-
                         {/* Links/Locations */}
-                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0 md:col-span-1">
-                            <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-8 py-4">Production Hubs</h4>
+                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0">
                             {[
                                 { name: "United Kingdom", delay: 0.5 },
                                 { name: "France", delay: 0.6 },
@@ -119,20 +95,44 @@ export function SiteFooter() {
                         </div>
                     </div>
 
-                    {/* Bottom Utility */}
-                    <div className="flex flex-col md:flex-row justify-between items-end md:items-center pt-24">
-                        <p className="text-[10px] text-white/30 uppercase tracking-widest">
-                            All Rights Reserved © {new Date().getFullYear()}
-                        </p>
-                        <p className="text-[10px] text-white/30 uppercase tracking-widest hidden md:block">
-                            Kang Quintus x Agentic
-                        </p>
-                        <button
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="text-[10px] uppercase tracking-widest hover:text-white/50 transition-colors"
-                        >
-                            ↑ Back to top
-                        </button>
+                    {/* Socials & Bottom Utility Area */}
+                    <div className="pt-24 space-y-8">
+                        {/* Horizontal Social Links */}
+                        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-b border-white/10 pb-8">
+                            {socials.map((social, i) => (
+                                <motion.a
+                                    key={social.name}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 + i * 0.1 }}
+                                    className="flex items-center gap-2 group transition-colors"
+                                >
+                                    <social.icon className="w-4 h-4 text-white/50 group-hover:text-red-500 transition-colors" />
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 group-hover:text-white transition-colors">
+                                        {social.name}
+                                    </span>
+                                </motion.a>
+                            ))}
+                        </div>
+
+                        {/* Copyright and Utility */}
+                        <div className="flex flex-col md:flex-row justify-between items-end md:items-center">
+                            <p className="text-[10px] text-white/30 uppercase tracking-widest">
+                                All Rights Reserved © {new Date().getFullYear()}
+                            </p>
+                            <p className="text-[10px] text-white/30 uppercase tracking-widest hidden md:block">
+                                Kang Quintus x Agentic
+                            </p>
+                            <button
+                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                className="text-[10px] uppercase tracking-widest hover:text-white/50 transition-colors"
+                            >
+                                ↑ Back to top
+                            </button>
+                        </div>
                     </div>
 
                 </div>
