@@ -5,7 +5,7 @@ import { Trophy, Star, Award, Medal, Crown, Globe } from "lucide-react";
 
 export function AwardsPreview() {
     return (
-        <section className="py-16 md:py-32 bg-black text-white px-6 md:px-12 border-b border-white/10">
+        <section className="pt-8 pb-16 md:py-32 bg-black text-white px-6 md:px-12 border-b border-white/10">
             <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center gap-24">
 
                 {/* Header Statement */}

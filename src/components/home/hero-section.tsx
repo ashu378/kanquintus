@@ -19,7 +19,7 @@ export function HeroSection() {
     ];
 
     return (
-        <section className="relative min-h-screen md:min-h-screen w-full flex flex-col md:flex-row items-center justify-between bg-black overflow-hidden px-6 pt-24 pb-20 md:px-12 md:pt-0">
+        <section className="relative min-h-[90vh] md:min-h-screen w-full flex flex-col md:flex-row items-center justify-between bg-black overflow-hidden px-6 pt-24 pb-8 md:px-12 md:pt-0">
 
             {/* Massive Typography - Overlapping on Mobile */}
             <div className="z-20 w-full md:w-1/2 flex flex-col justify-center items-start pt-32 md:pt-0">
@@ -30,9 +30,9 @@ export function HeroSection() {
                     className="relative z-30"
                 >
                     <motion.div style={{ y: yText, opacity: opacityHero, willChange: "transform" }}>
-                        <h1 className="text-[17vw] md:text-[10vw] leading-[0.8] font-black tracking-tighter text-white uppercase mix-blend-exclusion -ml-[0.05em]">
-                            KANG <br />
-                            QUINTUS
+                        <h1 className="text-[17vw] md:text-[10vw] leading-[0.8] font-black tracking-tighter text-white lowercase mix-blend-exclusion -ml-[0.05em]">
+                            kang <br />
+                            quintus
                         </h1>
                     </motion.div>
                 </motion.div>
