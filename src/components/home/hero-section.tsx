@@ -58,16 +58,19 @@ export function HeroSection() {
                     className="w-full h-full relative"
                 >
                     <Image
-                        src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=1974&auto=format&fit=crop"
+                        src="/images/home/hero-portrait-final.png"
                         alt="Kang Quintus Portrait"
                         fill
                         className="object-cover object-top md:object-center"
                         priority
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    {/* Gradient to blend with black bg - REDUCED OPACITY */}
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/60 md:to-black/80" />
+                    {/* Seamless Blending Gradients */}
+                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-black md:via-transparent md:to-black" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent hidden md:block" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                    {/* Subtle Radial Vignette to focus center and hide edges */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_90%)] opacity-40" />
                 </motion.div>
             </motion.div>
 

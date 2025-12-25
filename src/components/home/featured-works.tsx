@@ -9,21 +9,21 @@ const works = [
         title: "Mabanda",
         year: "2026",
         role: "Lead Actor, Producer",
-        image: "/images/mabanda.png",
+        image: "/images/work/mabanda-poster.jpg",
         slug: "mabanda"
     },
     {
         title: "The Fisherman's Diary",
         year: "2020",
         role: "Lead Actor, Producer",
-        image: "/images/fishermans-diary.png",
+        image: "/images/work/fishermans-diary-netflix-v2.jpg",
         slug: "fishermans-diary"
     },
     {
         title: "Nganu",
         year: "2023",
         role: "Lead Actor, Producer",
-        image: "/images/nganu.jpg",
+        image: "/images/work/nganu-title-v2.png",
         slug: "nganu"
     }
 ];

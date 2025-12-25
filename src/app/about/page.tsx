@@ -19,7 +19,7 @@ export default function AboutPage() {
                         className="relative aspect-[3/4] md:aspect-square overflow-hidden rounded-sm"
                     >
                         <Image
-                            src="https://images.unsplash.com/photo-1533241240166-70e9dd17fb57?q=80&w=2340&auto=format&fit=crop"
+                            src="/images/kangquintus-photos/imgi_167_Art92-905x613.png"
                             alt="Kang Quintus"
                             fill
                             className="object-cover grayscale hover:grayscale-0 transition-all duration-700"

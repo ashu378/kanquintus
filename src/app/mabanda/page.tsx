@@ -14,7 +14,7 @@ export default function MabandaPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/work/mabanda.jpg"
+                        src="/images/work/mabanda-hero-new.jpg"
                         alt="Mabanda"
                         fill
                         className="object-cover opacity-40"
@@ -116,10 +116,10 @@ export default function MabandaPage() {
                     <div className="md:col-span-9">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             {[
-                                { name: "Kang Quintus", role: "Director / Producer", image: "/images/crew/crew1.jpg" },
-                                { name: "Ade Okonkwo", role: "Lead Actor", image: "/images/crew/crew2.jpg" },
-                                { name: "Amara Nduka", role: "Lead Actress", image: "/images/crew/crew3.jpg" },
-                                { name: "Emeka Chidi", role: "Cinematographer", image: "/images/crew/crew4.jpg" },
+                                { name: "Kang Quintus", role: "Director / Producer", image: "/images/kangquintus-photos/imgi_145_acteur-kang-quintus-people237.png" },
+                                { name: "Ade Okonkwo", role: "Lead Actor", image: "/images/kangquintus-photos/imgi_137_1200px-Au_Festival_Écrans_noirs_2025_10.jpg" },
+                                { name: "Amara Nduka", role: "Lead Actress", image: "/images/kangquintus-photos/imgi_160_WhatsApp-Image-2025-08-29-at-13.18.21.jpg" },
+                                { name: "Emeka Chidi", role: "Cinematographer", image: "/images/kangquintus-photos/imgi_172_E_jhcbeWQAI5pvc.jpg" },
                             ].map((member, i) => (
                                 <motion.div
                                     key={member.name}

@@ -51,7 +51,7 @@ export function CareerSnapshot() {
                     className="order-1 md:order-2 aspect-[4/3] bg-white/5 relative overflow-hidden group"
                 >
                     <Image
-                        src="/images/fishermans-diary.png"
+                        src="/images/fishermans-diary-netflix.jpg"
                         alt="The Fisherman's Diary"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -72,7 +72,7 @@ export function CareerSnapshot() {
                     className="aspect-[4/5] bg-white/5 relative overflow-hidden group"
                 >
                     <Image
-                        src="/images/mabanda.png"
+                        src="/images/work/mabanda-poster.jpg"
                         alt="Mabanda"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"

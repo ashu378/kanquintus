@@ -8,53 +8,53 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
     {
-        title: "Mabanda",
-        category: "Upcoming Feature",
-        year: "2026",
-        role: "Lead Actor, Producer",
-        image: "/images/work/mabanda.jpg",
-        video: "/videos/mabanda-teaser.mp4", // User to replace
-        slug: "mabanda",
-        size: "large" // Spans full width or large col
-    },
-    {
         title: "The Fisherman's Diary",
         category: "Feature Film",
         year: "2020",
         role: "Lead Actor",
-        image: "/images/work/fishermans-diary.jpg",
+        image: "/images/work/fishermans-diary-netflix-v2.jpg",
         video: "/videos/fishermans-diary.mp4",
         slug: "fishermans-diary",
-        size: "normal"
+        size: "large"
+    },
+    {
+        title: "Mabanda",
+        category: "Upcoming Feature",
+        year: "2026",
+        role: "Lead Actor, Producer",
+        image: "/images/work/mabanda-poster.jpg",
+        video: "/videos/mabanda-teaser.mp4", // User to replace
+        slug: "mabanda",
+        size: "normal" // Spans full width or large col
     },
     {
         title: "Nganu",
         category: "Feature Film",
         year: "2023",
         role: "Lead Actor, Producer",
-        image: "/images/work/nganu.jpg",
+        image: "/images/work/nganu-title-v2.png",
         video: "/videos/nganu.mp4",
         slug: "nganu",
         size: "normal"
     },
     {
-        title: "The Planters Plantation",
+        title: "Rejected",
         category: "Feature Film",
         year: "2022",
         role: "Executive Producer",
-        image: "/images/work/planters.jpg",
+        image: "/images/work/rejected-poster.jpg",
         video: "/videos/planters.mp4",
-        slug: "planters-plantation",
+        slug: "rejected",
         size: "normal"
     },
     {
-        title: "Therapy",
+        title: "Retaliation",
         category: "Netflix Original",
         year: "2021",
-        role: "Co-Producer",
-        image: "/images/work/therapy.jpg",
+        role: "Lead Actor, Producer",
+        image: "/images/work/retaliation-poster.jpg",
         video: "/videos/therapy.mp4",
-        slug: "therapy",
+        slug: "retaliation",
         size: "normal"
     },
     {

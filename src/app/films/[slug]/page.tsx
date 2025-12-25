@@ -26,7 +26,7 @@ const films: Record<string, {
         genre: "Drama",
         duration: "2h 23m",
         status: "Released",
-        poster: "/images/work/fishermans-diary.jpg",
+        poster: "/images/work/fishermans-diary-netflix-v2.jpg",
         role: "Lead Actor ('Solomon') & Producer",
         synopsis: "Inspired by Nobel Peace Prize winner Malala Yousafzai, The Fisherman's Diary follows Ekah, a 12-year-old girl who is determined to go to school in a village of fishermen where the education of a girl child is considered a taboo. Her drive to break this old adage gets her embroiled with her father's past.",
         awards: ["Best Film - AMAA 2020", "Cameroon Entry for Oscars 2021", "Best Actor - Paris Film Festival"],
@@ -41,7 +41,7 @@ const films: Record<string, {
         genre: "Psychological Drama",
         duration: "1h 50m",
         status: "Released",
-        poster: "/images/work/nganu.jpg",
+        poster: "/images/work/nganu-title-v2.png",
         role: "Lead Actor & Producer",
         synopsis: "A psychological drama delving into the cycle of domestic violence. Nganu, a man haunted by his past, struggles to contain his demons while trying to hold his family together in a village that watches in silence.",
         awards: ["Ecrans Noir Selection"],
@@ -56,7 +56,7 @@ const films: Record<string, {
         genre: "Epic / Historical",
         duration: "TBA",
         status: "Upcoming",
-        poster: "/images/work/mabanda.jpg",
+        poster: "/images/work/mabanda-poster.jpg",
         role: "Lead Actor, Producer",
         synopsis: "An epic tale of power, betrayal, and redemption. The story of a kingdom at the crossroads of history, and the warrior who must decide its fate. Filmed across three countries with an international cast.",
         awards: [],
@@ -93,6 +93,36 @@ const films: Record<string, {
         credits: {
             director: "Production Team",
             cast: ["Ensemble Cast"]
+        }
+    },
+    "rejected": {
+        title: "Rejected",
+        year: "2022",
+        genre: "Drama",
+        duration: "1h 55m",
+        status: "Released",
+        poster: "/images/work/rejected-poster.jpg",
+        role: "Executive Producer",
+        synopsis: "A gripping drama exploring themes of abandonment and resilience.",
+        awards: [],
+        credits: {
+            director: "Production Team",
+            cast: ["Ensemble Cast"]
+        }
+    },
+    "retaliation": {
+        title: "Retaliation",
+        year: "2021",
+        genre: "Drama",
+        duration: "1h 45m",
+        status: "Released",
+        poster: "/images/work/retaliation-poster.jpg",
+        role: "Lead Actor & Producer",
+        synopsis: "RETALIATION...a movie that uncovers the perception of a killer who is said to kill without conscience, in an attempt to express his malevolence. His unquenchable thirst for money and heart stricken memories of the past drives him into a telepathic state. The price of ego and the unhealed scars of betrayal is what this masterpiece uncovers.",
+        awards: [],
+        credits: {
+            director: "Director",
+            cast: ["Kang Quintus", "Ensemble Cast"]
         }
     },
     "untitled-project": {
