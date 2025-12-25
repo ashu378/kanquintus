@@ -54,18 +54,18 @@ export function SiteHeader() {
                 className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen ? "bg-black/50 backdrop-blur-md border-b border-white/5" : "bg-transparent"
                     }`}
             >
-                {/* Logo */}
-                <Link href="/" className="z-[70]" onClick={() => setIsMenuOpen(false)}>
+                {/* Logo - Hidden on Mobile if not scrolled */}
+                <Link href="/" className={`z-[70] transition-opacity duration-500 ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`} onClick={() => setIsMenuOpen(false)}>
                     <span className="text-xl font-bold tracking-tighter text-white mix-blend-exclusion">KQ</span>
                 </Link>
 
-                {/* Navigation (Desktop) */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {menuLinks.map((link) => (
+                {/* Navigation (Desktop & Mobile Minimal) */}
+                <nav className={`absolute left-0 right-0 md:relative md:flex items-center justify-center gap-8 transition-all duration-500 ${scrolled ? 'hidden md:flex' : 'flex'}`}>
+                    {(scrolled ? menuLinks : menuLinks.filter(l => !l.highlight)).map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-xs font-bold uppercase tracking-widest transition-colors ${link.highlight ? 'text-red-500 hover:text-red-400' : 'text-white hover:text-white/70'}`}
+                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors ${link.highlight ? 'text-red-500 hover:text-red-400' : 'text-white hover:text-white/70'} ${!scrolled && !isMenuOpen ? 'border-b border-white/30 pb-1' : ''}`}
                         >
                             {link.label}
                         </Link>
@@ -74,12 +74,12 @@ export function SiteHeader() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-6 z-[70]">
-                    <button className="text-white hover:text-white/70 transition-colors">
+                    <button className={`text-white hover:text-white/70 transition-colors ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}>
                         <Search className="w-5 h-5" />
                     </button>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden text-white hover:text-white/70 transition-colors"
+                        className={`md:hidden text-white hover:text-white/70 transition-colors ${scrolled || isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         aria-label="Toggle Menu"
                     >
                         {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
