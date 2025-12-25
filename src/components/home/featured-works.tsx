@@ -47,11 +47,11 @@ export function FeaturedWorks() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                                className="flex flex-col md:flex-row gap-8 md:items-center"
+                                className="flex flex-col lg:flex-row gap-8 lg:items-center"
                             >
                                 {/* Title - Massive */}
-                                <div className="flex-1 order-2 md:order-1">
-                                    <h2 className="text-6xl md:text-8xl font-serif font-bold group-hover:text-white/70 transition-colors duration-500">
+                                <div className="flex-1 order-2 lg:order-1">
+                                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold group-hover:text-white/70 transition-colors duration-500">
                                         {work.title}
                                     </h2>
                                     <div className="flex gap-4 mt-2 text-sm text-white/50 uppercase tracking-widest">
@@ -62,7 +62,7 @@ export function FeaturedWorks() {
                                 </div>
 
                                 {/* Image Preview (Reveals with curtain) */}
-                                <div className="w-full md:w-1/3 aspect-[16/9] relative overflow-hidden order-1 md:order-2">
+                                <div className="w-full lg:w-1/3 aspect-[16/9] relative overflow-hidden order-1 lg:order-2">
                                     {/* Curtain Mask */}
                                     <motion.div
                                         initial={{ x: "0%" }}

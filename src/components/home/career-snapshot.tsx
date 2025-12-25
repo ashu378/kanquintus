@@ -28,12 +28,12 @@ export function CareerSnapshot() {
             </div>
 
             {/* Split Component 1 - Text Left, Image Right */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center mb-32 max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32 max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="order-2 md:order-1"
+                    className="order-2 lg:order-1"
                 >
                     <span className="block w-12 h-0.5 bg-white mb-6" />
                     <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6 leading-tight">
@@ -48,10 +48,10 @@ export function CareerSnapshot() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="order-1 md:order-2 aspect-[4/3] bg-white/5 relative overflow-hidden group"
+                    className="order-1 lg:order-2 aspect-[4/3] bg-white/5 relative overflow-hidden group"
                 >
                     <Image
-                        src="/images/fishermans-diary-netflix.jpg"
+                        src="/images/work/fishermans-diary-netflix-v2.jpg"
                         alt="The Fisherman's Diary"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -63,7 +63,7 @@ export function CareerSnapshot() {
             </div>
 
             {/* Split Component 2 - Image Left, Text Right (ZigZag) */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-7xl mx-auto">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}

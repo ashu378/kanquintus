@@ -54,7 +54,7 @@ export function HeroSection() {
                 transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
             >
                 <motion.div
-                    style={{ y: yImage, scale: scaleImage, willChange: "transform" }}
+                    style={{ y: yImage, scale: scaleImage, opacity: opacityHero, willChange: "transform" }}
                     className="w-full h-full relative"
                 >
                     <Image
@@ -65,12 +65,19 @@ export function HeroSection() {
                         priority
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    {/* Seamless Blending Gradients */}
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-black md:via-transparent md:to-black" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent hidden md:block" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                    {/* Subtle Radial Vignette to focus center and hide edges */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_90%)] opacity-40" />
+                    {/* Advanced Seamless Blending */}
+                    {/* 1. Left fade (to hide horizontal edge on mobile/blend into text on desktop) */}
+                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black md:from-transparent md:to-black z-10" />
+
+                    {/* 2. Top fade (smooth transition from header) */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent h-1/4 z-10" />
+
+                    {/* 3. Bottom fade (melt into the next section) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+
+                    {/* 4. Subtle Radial Mask to soften all edges simultaneously */}
+                    <div className="absolute inset-0 bg-black/5 mix-blend-multiply z-10" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,transparent_0%,black_100%)] opacity-60 z-20" />
                 </motion.div>
             </motion.div>
 
