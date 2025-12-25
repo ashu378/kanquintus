@@ -98,7 +98,7 @@ export function SiteFooter() {
                     {/* Socials & Bottom Utility Area */}
                     <div className="pt-24 space-y-8">
                         {/* Horizontal Social Links */}
-                        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-b border-white/10 pb-8">
+                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-b border-white/10 pb-8">
                             {socials.map((social, i) => (
                                 <motion.a
                                     key={social.name}
