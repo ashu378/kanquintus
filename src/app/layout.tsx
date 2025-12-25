@@ -7,6 +7,9 @@ import { FilmGrain } from "@/components/film-grain";
 export const metadata: Metadata = {
   title: "Kang Quintus | Official Portfolio",
   description: "Award-Winning Actor, Director & Producer. Official portfolio and filmography.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
