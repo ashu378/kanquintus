@@ -51,30 +51,58 @@ export function SiteFooter() {
 
                     {/* Content Grid */}
                     <div className="grid md:grid-cols-2 gap-12 md:gap-32 max-w-5xl">
-                        {/* Disclaimer */}
-                        <div className="space-y-6">
-                            <motion.h3
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4, duration: 0.8 }}
-                                className="text-4xl md:text-5xl font-bold uppercase leading-[0.9] tracking-tight"
-                            >
-                                I'M NOTORIOUSLY<br />
-                                SLOW AT GETTING<br />
-                                BACK TO EMAILS
-                            </motion.h3>
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ delay: 0.6 }}
-                                className="text-white/50 text-xs uppercase tracking-widest max-w-sm"
-                            >
-                                IN A HURRY? PLEASE CONTACT MY AWESOME PRODUCERS
-                            </motion.p>
+                        {/* Disclaimer & Socials */}
+                        <div className="space-y-12">
+                            <div className="space-y-6">
+                                <motion.h3
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4, duration: 0.8 }}
+                                    className="text-4xl md:text-5xl font-bold uppercase leading-[0.9] tracking-tight"
+                                >
+                                    I'M NOTORIOUSLY<br />
+                                    SLOW AT GETTING<br />
+                                    BACK TO EMAILS
+                                </motion.h3>
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    transition={{ delay: 0.6 }}
+                                    className="text-white/50 text-xs uppercase tracking-widest max-w-sm"
+                                >
+                                    IN A HURRY? PLEASE CONTACT MY AWESOME PRODUCERS
+                                </motion.p>
+                            </div>
+
+                            {/* Integrated Social Links */}
+                            <div className="space-y-4">
+                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/30 block mb-6">Digital Presence</span>
+                                <div className="flex flex-wrap gap-8">
+                                    {socials.map((social, i) => (
+                                        <motion.a
+                                            key={social.name}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            initial={{ opacity: 0 }}
+                                            whileInView={{ opacity: 1 }}
+                                            transition={{ delay: 0.7 + i * 0.1 }}
+                                            className="group flex flex-col gap-2"
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <social.icon className="w-4 h-4 text-white hover:text-red-500 transition-colors" />
+                                                <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all -translate-y-1 translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0" />
+                                            </div>
+                                            <span className="text-[9px] uppercase font-bold tracking-widest text-white/40 group-hover:text-white transition-colors">{social.name}</span>
+                                        </motion.a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         {/* Links/Locations */}
                         <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0">
+                            <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-8 py-4">Production Hubs</h4>
                             {[
                                 { name: "United Kingdom", delay: 0.5 },
                                 { name: "France", delay: 0.6 },
@@ -95,44 +123,20 @@ export function SiteFooter() {
                         </div>
                     </div>
 
-                    {/* Socials & Bottom Utility Area */}
-                    <div className="pt-24 space-y-8">
-                        {/* Horizontal Social Links */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-b border-white/10 pb-8">
-                            {socials.map((social, i) => (
-                                <motion.a
-                                    key={social.name}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2 + i * 0.1 }}
-                                    className="flex items-center gap-2 group transition-colors"
-                                >
-                                    <social.icon className="w-4 h-4 text-white/50 group-hover:text-red-500 transition-colors" />
-                                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 group-hover:text-white transition-colors">
-                                        {social.name}
-                                    </span>
-                                </motion.a>
-                            ))}
-                        </div>
-
-                        {/* Copyright and Utility */}
-                        <div className="flex flex-col md:flex-row justify-between items-end md:items-center">
-                            <p className="text-[10px] text-white/30 uppercase tracking-widest">
-                                All Rights Reserved © {new Date().getFullYear()}
-                            </p>
-                            <p className="text-[10px] text-white/30 uppercase tracking-widest hidden md:block">
-                                Kang Quintus x Agentic
-                            </p>
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="text-[10px] uppercase tracking-widest hover:text-white/50 transition-colors"
-                            >
-                                ↑ Back to top
-                            </button>
-                        </div>
+                    {/* Bottom UtilityArea */}
+                    <div className="pt-24 flex flex-col md:flex-row justify-between items-end md:items-center">
+                        <p className="text-[10px] text-white/30 uppercase tracking-widest">
+                            All Rights Reserved © {new Date().getFullYear()}
+                        </p>
+                        <p className="text-[10px] text-white/30 uppercase tracking-widest hidden md:block">
+                            Kang Quintus x Agentic
+                        </p>
+                        <button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="text-[10px] uppercase tracking-widest hover:text-white/50 transition-colors"
+                        >
+                            ↑ Back to top
+                        </button>
                     </div>
 
                 </div>
