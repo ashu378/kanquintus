@@ -12,7 +12,7 @@ export function SiteFooter() {
     ];
 
     return (
-        <footer className="bg-black text-white pt-20 pb-12 px-6 md:px-12 border-t border-white/10">
+        <footer className="bg-black text-white pt-20 pb-6 md:pb-12 px-6 md:px-12 border-t border-white/10">
             <div className="max-w-[1800px] mx-auto grid md:grid-cols-12 gap-12">
 
                 {/* Left Column - Label */}
@@ -34,7 +34,7 @@ export function SiteFooter() {
                 </div>
 
                 {/* Right Content Area */}
-                <div className="md:col-span-10 flex flex-col gap-24">
+                <div className="md:col-span-10 flex flex-col gap-12 md:gap-24">
 
                     {/* Hero Title - Single Line, Title Case */}
                     <div className="border-b-2 border-white pb-2 overflow-hidden">
@@ -124,7 +124,7 @@ export function SiteFooter() {
                     </div>
 
                     {/* Bottom UtilityArea */}
-                    <div className="pt-24 flex flex-col md:flex-row justify-between items-end md:items-center">
+                    <div className="pt-12 md:pt-24 flex flex-col md:flex-row justify-between items-end md:items-center">
                         <p className="text-[10px] text-white/30 uppercase tracking-widest">
                             All Rights Reserved © {new Date().getFullYear()}
                         </p>
