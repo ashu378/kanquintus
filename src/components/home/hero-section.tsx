@@ -19,7 +19,7 @@ export function HeroSection() {
     ];
 
     return (
-        <section className="relative min-h-[140vh] md:min-h-screen w-full flex flex-col md:flex-row items-center justify-between bg-black overflow-hidden px-6 pt-24 md:px-12 md:pt-0">
+        <section className="relative min-h-screen md:min-h-screen w-full flex flex-col md:flex-row items-center justify-between bg-black overflow-hidden px-6 pt-24 pb-20 md:px-12 md:pt-0">
 
             {/* Massive Typography - Overlapping on Mobile */}
             <div className="z-20 w-full md:w-1/2 flex flex-col justify-center items-start pt-32 md:pt-0">
