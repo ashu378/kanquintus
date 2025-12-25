@@ -38,7 +38,6 @@ export function SiteHeader() {
     const menuLinks = [
         { href: "/", label: "Bio" },
         { href: "/films", label: "Work" },
-        { href: "/mabanda", label: "Mabanda 2026", highlight: true },
         { href: "/contact", label: "Contact" },
     ];
 
@@ -61,11 +60,11 @@ export function SiteHeader() {
 
                 {/* Navigation (Desktop & Mobile Minimal) */}
                 <nav className={`absolute left-0 right-0 md:relative md:flex items-center justify-center gap-8 transition-all duration-500 ${scrolled ? 'hidden md:flex' : 'flex'}`}>
-                    {(scrolled ? menuLinks : menuLinks.filter(l => !l.highlight)).map((link) => (
+                    {menuLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors ${link.highlight ? 'text-red-500 hover:text-red-400' : 'text-white hover:text-white/70'} ${!scrolled && !isMenuOpen ? 'border-b border-white/30 pb-1' : ''}`}
+                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors text-white hover:text-white/70 ${!scrolled && !isMenuOpen ? 'border-b border-white/30 pb-1' : ''}`}
                         >
                             {link.label}
                         </Link>
@@ -107,7 +106,7 @@ export function SiteHeader() {
                                 <Link
                                     href={link.href}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-[12vw] font-black uppercase tracking-tighter ${link.highlight ? 'text-red-500' : 'text-white'}`}
+                                    className={`text-[12vw] font-black uppercase tracking-tighter text-white hover:text-white/70`}
                                 >
                                     {link.label}
                                 </Link>
