@@ -2,9 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, ArrowUpRight } from "lucide-react";
+import { Facebook, Instagram, Film, ArrowUpRight } from "lucide-react";
 
 export function SiteFooter() {
+    const socials = [
+        { name: "Facebook", href: "https://web.facebook.com/kangquintus/?_rdc=1&_rdr#", icon: Facebook },
+        { name: "Instagram", href: "https://www.instagram.com/kangquintus/?hl=en", icon: Instagram },
+        { name: "IMDb", href: "https://www.imdb.com/name/nm6886375/", icon: Film },
+    ];
+
     return (
         <footer className="bg-black text-white pt-20 pb-12 px-6 md:px-12 border-t border-white/10">
             <div className="max-w-[1800px] mx-auto grid md:grid-cols-12 gap-12">
@@ -17,7 +23,7 @@ export function SiteFooter() {
                         transition={{ delay: 0.2 }}
                         className="text-xs uppercase tracking-widest text-white/50 block mb-2"
                     >
-                        Contact
+                        Contact & Socials
                     </motion.span>
                     <motion.div
                         initial={{ scaleX: 0 }}
@@ -44,9 +50,9 @@ export function SiteFooter() {
                     </div>
 
                     {/* Content Grid */}
-                    <div className="grid md:grid-cols-2 gap-12 md:gap-32 max-w-5xl">
+                    <div className="grid md:grid-cols-3 gap-12 md:gap-32 max-w-7xl">
                         {/* Disclaimer */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 md:col-span-1">
                             <motion.h3
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -67,8 +73,32 @@ export function SiteFooter() {
                             </motion.p>
                         </div>
 
+                        {/* Social Links */}
+                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0 md:col-span-1">
+                            <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-8 py-4">Social Presence</h4>
+                            {socials.map((social, i) => (
+                                <motion.a
+                                    key={social.name}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
+                                    className="flex justify-between items-center group cursor-pointer py-4 hover:pl-2 transition-all duration-300 border-b border-white/20"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <social.icon className="w-4 h-4 text-white/50 group-hover:text-red-500 transition-colors" />
+                                        <span className="text-xs font-bold uppercase tracking-wider">{social.name}</span>
+                                    </div>
+                                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </motion.a>
+                            ))}
+                        </div>
+
                         {/* Links/Locations */}
-                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0">
+                        <div className="space-y-0 divide-y divide-white/20 border-t border-white/20 md:border-t-0 md:col-span-1">
+                            <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-8 py-4">Production Hubs</h4>
                             {[
                                 { name: "United Kingdom", delay: 0.5 },
                                 { name: "France", delay: 0.6 },
