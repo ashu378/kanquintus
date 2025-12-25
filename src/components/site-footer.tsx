@@ -37,13 +37,13 @@ export function SiteFooter() {
                 <div className="md:col-span-10 flex flex-col gap-12 md:gap-24">
 
                     {/* Hero Title - Single Line, Title Case */}
-                    <div className="border-b-2 border-white pb-2 overflow-hidden">
+                    <div className="border-b-2 border-white pb-2 overflow-hidden w-fit mx-auto">
                         <motion.h2
                             initial={{ y: "100%" }}
                             whileInView={{ y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-[13vw] leading-[0.85] font-black tracking-tighter text-white mix-blend-exclusion -ml-[0.05em]"
+                            className="text-[13vw] leading-[0.85] font-black tracking-tighter text-white mix-blend-exclusion text-center"
                         >
                             Get in touch
                         </motion.h2>
