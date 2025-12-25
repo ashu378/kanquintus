@@ -169,7 +169,7 @@ export default function WorkPage() {
                     initial={{ y: "110%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-[13vw] leading-[0.8] font-black tracking-tighter mix-blend-exclusion -ml-[0.05em]"
+                    className="text-[13vw] leading-[0.8] font-black tracking-tighter mix-blend-exclusion text-center"
                 >
                     Selected Work
                 </motion.h1>
