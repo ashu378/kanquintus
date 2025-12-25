@@ -9,7 +9,7 @@ const works = [
         title: "Mabanda",
         year: "2026",
         role: "Lead Actor, Producer",
-        image: "/images/work/mabanda-poster.jpg",
+        image: "/images/work/mabanda-selected.jpg",
         slug: "mabanda"
     },
     {
