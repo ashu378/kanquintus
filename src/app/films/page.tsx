@@ -161,7 +161,7 @@ const ProjectItem = ({ project, index }: { project: typeof projects[0], index: n
 
 export default function WorkPage() {
     return (
-        <div className="min-h-screen bg-black text-white pt-[25vh] pb-20 px-6 md:px-12 font-sans">
+        <div className="min-h-screen bg-black text-white pt-56 md:pt-[25vh] pb-20 px-6 md:px-12 font-sans">
 
             {/* Page Header */}
             <div className="mb-24 md:mb-40">

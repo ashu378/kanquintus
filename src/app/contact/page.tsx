@@ -25,7 +25,7 @@ const agencies = [
 
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-black text-white pt-[30vh] pb-20 px-6 md:px-12 font-sans">
+        <div className="min-h-screen bg-black text-white pt-56 md:pt-[30vh] pb-20 px-6 md:px-12 font-sans">
 
             {/* Header Section */}
             <div className="mb-32 md:mb-48">
