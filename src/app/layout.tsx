@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`antialiased bg-background text-foreground flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <FilmGrain />
         <SiteHeader />
