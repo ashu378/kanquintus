@@ -67,6 +67,17 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 className="fixed inset-0 bg-white z-[9999] origin-bottom pointer-events-none mix-blend-difference"
             />
 
+            {/* Grain Texture Overlay for Light Pages */}
+            {(pathname?.startsWith("/films") || pathname?.startsWith("/contact")) && (
+                <div
+                    className="fixed inset-0 z-[100] pointer-events-none opacity-[0.03] contrast-150 brightness-100"
+                    style={{
+                        backgroundImage: `url('https://alitwotimes.com/wp-content/themes/aliali/public/images/noise.png')`,
+                        backgroundRepeat: 'repeat',
+                    }}
+                />
+            )}
+
             <div className="relative z-10">
                 {children}
             </div>

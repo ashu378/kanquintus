@@ -142,16 +142,16 @@ const ProjectItem = ({ project, index }: { project: typeof projects[0], index: n
                     <div className="space-y-1">
                         <div className="overflow-hidden">
                             <motion.h3
-                                className="text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:text-white/70 transition-colors duration-500"
+                                className="text-3xl md:text-4xl font-bold tracking-tight text-[#100F0F] group-hover:text-[#100F0F]/70 transition-colors duration-500"
                             >
                                 {project.title}
                             </motion.h3>
                         </div>
-                        <p className="text-sm font-medium tracking-wide text-white/50 uppercase">{project.category} — {project.year}</p>
+                        <p className="text-sm font-medium tracking-wide text-[#100F0F]/50 uppercase">{project.category} — {project.year}</p>
                     </div>
 
                     <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
-                        <ArrowUpRight className="text-white w-6 h-6" />
+                        <ArrowUpRight className="text-[#100F0F] w-6 h-6" />
                     </div>
                 </div>
             </Link>
@@ -161,7 +161,7 @@ const ProjectItem = ({ project, index }: { project: typeof projects[0], index: n
 
 export default function WorkPage() {
     return (
-        <div className="min-h-screen bg-black text-white pt-56 md:pt-[25vh] pb-20 px-6 md:px-12 font-sans">
+        <div className="min-h-screen bg-[#FCF6F4] text-[#100F0F] pt-56 md:pt-[25vh] pb-20 px-6 md:px-12 font-sans">
 
             {/* Page Header */}
             <div className="mb-24 md:mb-40">
@@ -169,7 +169,7 @@ export default function WorkPage() {
                     initial={{ y: "110%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-[13vw] leading-[0.8] font-black tracking-tighter mix-blend-exclusion text-center"
+                    className="text-[13vw] leading-[0.8] font-black tracking-tighter text-center"
                 >
                     Selected Work
                 </motion.h1>
@@ -189,9 +189,9 @@ export default function WorkPage() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-white border-b border-transparent group-hover:border-white transition-colors duration-300 pb-1"
+                        className="text-[#100F0F] border-b border-transparent group-hover:border-[#100F0F] transition-colors duration-300 pb-1"
                     >
-                        <span className="text-sm font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Start a Project</span>
+                        <span className="text-sm font-bold uppercase tracking-widest text-[#100F0F]/50 group-hover:text-[#100F0F] transition-colors">Start a Project</span>
                     </motion.div>
                 </Link>
             </div>

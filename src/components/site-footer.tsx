@@ -7,15 +7,17 @@ import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
     const pathname = usePathname();
-    const isContactPage = pathname?.startsWith("/contact");
+    const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films");
 
-    const bgColor = isContactPage ? "bg-[#E5E5E5]" : "bg-black";
-    const textColor = isContactPage ? "text-[#100F0F]" : "text-white";
-    const borderColor = isContactPage ? "border-[#100F0F]/10" : "border-white/10";
-    const accentBorderColor = isContactPage ? "border-[#100F0F]" : "border-white";
-    const subTextColor = isContactPage ? "text-[#100F0F]/50" : "text-white/50";
-    const ultraSubTextColor = isContactPage ? "text-[#100F0F]/30" : "text-white/30";
-    const accentBgColor = isContactPage ? "bg-[#100F0F]" : "bg-white";
+    const isFilmsPage = pathname?.startsWith("/films");
+
+    const bgColor = isLightPage ? (isFilmsPage ? "bg-[#FCF6F4]" : "bg-[#E5E5E5]") : "bg-black";
+    const textColor = isLightPage ? "text-[#100F0F]" : "text-white";
+    const borderColor = isLightPage ? "border-[#100F0F]/10" : "border-white/10";
+    const accentBorderColor = isLightPage ? "border-[#100F0F]" : "border-white";
+    const subTextColor = isLightPage ? "text-[#100F0F]/50" : "text-white/50";
+    const ultraSubTextColor = isLightPage ? "text-[#100F0F]/30" : "text-white/30";
+    const accentBgColor = isLightPage ? "bg-[#100F0F]" : "bg-white";
 
     const socials = [
         { name: "Facebook", href: "https://web.facebook.com/kangquintus/?_rdc=1&_rdr#", icon: Facebook },
@@ -55,7 +57,7 @@ export function SiteFooter() {
                             whileInView={{ y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className={`text-[13vw] leading-[0.85] font-black tracking-tighter ${isContactPage ? '' : 'mix-blend-exclusion'} text-center`}
+                            className={`text-[13vw] leading-[0.85] font-black tracking-tighter ${isLightPage ? '' : 'mix-blend-exclusion'} text-center`}
                         >
                             Get in touch
                         </motion.h2>

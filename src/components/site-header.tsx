@@ -9,13 +9,13 @@ import { usePathname } from "next/navigation";
 export function SiteHeader() {
     const { scrollY } = useScroll();
     const pathname = usePathname();
-    const isContactPage = pathname?.startsWith("/contact");
+    const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films");
     const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const textColor = isContactPage ? "text-[#100F0F]" : "text-white";
-    const borderColor = isContactPage ? "border-[#100F0F]/30" : "border-white/30";
+    const textColor = isLightPage ? "text-[#100F0F]" : "text-white";
+    const borderColor = isLightPage ? "border-[#100F0F]/30" : "border-white/30";
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
@@ -57,13 +57,13 @@ export function SiteHeader() {
                 animate={hidden ? "hidden" : "visible"}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen
-                    ? (isContactPage ? "bg-[#E5E5E5]/50 backdrop-blur-md border-b border-[#100F0F]/10" : "bg-black/50 backdrop-blur-md border-b border-white/5")
+                    ? (isLightPage ? `bg-${pathname?.startsWith("/films") ? "[#FCF6F4]" : "[#E5E5E5]"}/50 backdrop-blur-md border-b border-[#100F0F]/10` : "bg-black/50 backdrop-blur-md border-b border-white/5")
                     : "bg-transparent"
                     }`}
             >
                 {/* Logo - Hidden on Mobile if not scrolled */}
                 <Link href="/" className={`z-[70] transition-opacity duration-500 ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`} onClick={() => setIsMenuOpen(false)}>
-                    <span className={`text-xl font-bold tracking-tighter ${textColor} ${isContactPage ? '' : 'mix-blend-exclusion'}`}>KQ</span>
+                    <span className={`text-xl font-bold tracking-tighter ${textColor} ${isLightPage ? '' : 'mix-blend-exclusion'}`}>KQ</span>
                 </Link>
 
                 {/* Navigation (Desktop & Mobile Minimal) */}
