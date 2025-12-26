@@ -4,12 +4,18 @@ import Link from "next/link";
 import { Search, Menu, X } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
     const { scrollY } = useScroll();
+    const pathname = usePathname();
+    const isContactPage = pathname?.startsWith("/contact");
     const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const textColor = isContactPage ? "text-[#100F0F]" : "text-white";
+    const borderColor = isContactPage ? "border-[#100F0F]/30" : "border-white/30";
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
@@ -50,12 +56,14 @@ export function SiteHeader() {
                 }}
                 animate={hidden ? "hidden" : "visible"}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen ? "bg-black/50 backdrop-blur-md border-b border-white/5" : "bg-transparent"
+                className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen
+                    ? (isContactPage ? "bg-[#E5E5E5]/50 backdrop-blur-md border-b border-[#100F0F]/10" : "bg-black/50 backdrop-blur-md border-b border-white/5")
+                    : "bg-transparent"
                     }`}
             >
                 {/* Logo - Hidden on Mobile if not scrolled */}
                 <Link href="/" className={`z-[70] transition-opacity duration-500 ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`} onClick={() => setIsMenuOpen(false)}>
-                    <span className="text-xl font-bold tracking-tighter text-white mix-blend-exclusion">KQ</span>
+                    <span className={`text-xl font-bold tracking-tighter ${textColor} ${isContactPage ? '' : 'mix-blend-exclusion'}`}>KQ</span>
                 </Link>
 
                 {/* Navigation (Desktop & Mobile Minimal) */}
@@ -64,7 +72,7 @@ export function SiteHeader() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors text-white hover:text-white/70 ${!scrolled && !isMenuOpen ? 'border-b border-white/30 pb-1' : ''}`}
+                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors ${textColor} hover:opacity-70 ${!scrolled && !isMenuOpen ? `border-b ${borderColor} pb-1` : ''}`}
                         >
                             {link.label}
                         </Link>
@@ -73,12 +81,12 @@ export function SiteHeader() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-6 z-[70]">
-                    <button className={`text-white hover:text-white/70 transition-colors ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}>
+                    <button className={`${textColor} hover:opacity-70 transition-colors ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}>
                         <Search className="w-5 h-5" />
                     </button>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`md:hidden text-white hover:text-white/70 transition-colors ${scrolled || isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                        className={`md:hidden ${textColor} hover:opacity-70 transition-colors ${scrolled || isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         aria-label="Toggle Menu"
                     >
                         {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
