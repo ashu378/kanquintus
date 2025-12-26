@@ -7,11 +7,12 @@ import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
     const pathname = usePathname();
-    const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films");
+    const isContactPage = pathname === "/contact";
+    const isFilmsListPage = pathname === "/films";
+    const isFilmDetailPage = pathname?.startsWith("/films/") || pathname === "/mabanda";
+    const isLightPage = isContactPage || isFilmsListPage || isFilmDetailPage;
 
-    const isFilmsPage = pathname?.startsWith("/films");
-
-    const bgColor = isLightPage ? (isFilmsPage ? "bg-[#FCF6F4]" : "bg-[#E5E5E5]") : "bg-black";
+    const bgColor = isFilmDetailPage ? "bg-[#DBE3E5]" : isFilmsListPage ? "bg-[#FCF6F4]" : isContactPage ? "bg-[#E5E5E5]" : "bg-black";
     const textColor = isLightPage ? "text-[#100F0F]" : "text-white";
     const borderColor = isLightPage ? "border-[#100F0F]/10" : "border-white/10";
     const accentBorderColor = isLightPage ? "border-[#100F0F]" : "border-white";

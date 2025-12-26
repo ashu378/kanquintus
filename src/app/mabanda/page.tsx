@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function MabandaPage() {
     return (
-        <div className="min-h-screen bg-black text-white font-sans">
+        <div className="min-h-screen bg-[#DBE3E5] text-[#100F0F] font-sans">
 
             {/* Hero Section - Full Screen Title */}
             <section className="relative min-h-screen w-full flex flex-col justify-end overflow-hidden px-6 md:px-12 pb-20">
@@ -20,7 +20,7 @@ export default function MabandaPage() {
                         className="object-cover opacity-40"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#DBE3E5] via-[#DBE3E5]/70 to-transparent" />
                 </div>
 
                 {/* Content */}
@@ -38,7 +38,7 @@ export default function MabandaPage() {
                             initial={{ y: "110%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-[18vw] md:text-[15vw] leading-[0.8] font-black tracking-tighter uppercase mix-blend-exclusion -ml-[0.02em]"
+                            className="text-[18vw] md:text-[15vw] leading-[0.8] font-black tracking-tighter uppercase -ml-[0.02em]"
                         >
                             Mabanda
                         </motion.h1>
@@ -47,7 +47,7 @@ export default function MabandaPage() {
             </section>
 
             {/* Synopsis Section */}
-            <section className="py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
+            <section className="py-32 md:py-48 px-6 md:px-12 border-t border-[#100F0F]/10">
                 <div className="grid md:grid-cols-12 gap-12 md:gap-24">
                     {/* Label */}
                     <motion.div
@@ -57,7 +57,7 @@ export default function MabandaPage() {
                         transition={{ duration: 1 }}
                         className="md:col-span-3"
                     >
-                        <h2 className="text-xs font-bold uppercase tracking-widest text-white/50">Synopsis</h2>
+                        <h2 className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/50">Synopsis</h2>
                     </motion.div>
 
                     {/* Content */}
@@ -71,7 +71,7 @@ export default function MabandaPage() {
                         <p className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                             An epic tale of power, betrayal, and redemption set against the backdrop of a changing Africa.
                         </p>
-                        <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-3xl">
+                        <p className="text-lg md:text-xl text-[#100F0F]/60 leading-relaxed max-w-3xl">
                             Following the massive success of "The Fisherman's Diary", Kang Quintus returns to the director's chair for his most ambitious project yet. Filmed across three countries with an international cast, Mabanda promises to redefine the scale of African cinema. The story follows a young warrior forced to choose between his heritage and the future of his people.
                         </p>
                     </motion.div>
@@ -79,7 +79,7 @@ export default function MabandaPage() {
             </section>
 
             {/* Details Grid */}
-            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/10">
+            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-[#100F0F]/10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16">
                     {[
                         { label: "Genre", value: "Historical Epic" },
@@ -95,7 +95,7 @@ export default function MabandaPage() {
                             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="space-y-2"
                         >
-                            <p className="text-xs font-bold uppercase tracking-widest text-white/40">{item.label}</p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40">{item.label}</p>
                             <p className="text-xl md:text-2xl font-bold tracking-tight">{item.value}</p>
                         </motion.div>
                     ))}
@@ -103,7 +103,7 @@ export default function MabandaPage() {
             </section>
 
             {/* Cast & Crew */}
-            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/10">
+            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-[#100F0F]/10">
                 <div className="grid md:grid-cols-12 gap-12 md:gap-24">
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export default function MabandaPage() {
                         viewport={{ once: true }}
                         className="md:col-span-3"
                     >
-                        <h2 className="text-xs font-bold uppercase tracking-widest text-white/50">Cast & Crew</h2>
+                        <h2 className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/50">Cast & Crew</h2>
                     </motion.div>
                     <div className="md:col-span-9">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -138,7 +138,7 @@ export default function MabandaPage() {
                                         />
                                     </div>
                                     <div>
-                                        <p className="font-bold text-white">{member.name}</p>
+                                        <p className="font-bold text-[#100F0F]">{member.name}</p>
                                         <p className="text-sm text-red-500">{member.role}</p>
                                     </div>
                                 </motion.div>
@@ -149,7 +149,7 @@ export default function MabandaPage() {
             </section>
 
             {/* CTA / Get Notified */}
-            <section className="py-32 md:py-48 px-6 md:px-12 border-t border-white/10 text-center">
+            <section className="py-32 md:py-48 px-6 md:px-12 border-t border-[#100F0F]/10 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +157,7 @@ export default function MabandaPage() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="max-w-2xl mx-auto space-y-8"
                 >
-                    <p className="text-xs font-bold uppercase tracking-widest text-white/50">Stay Updated</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/50">Stay Updated</p>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
                         Be the first to know.
                     </h2>

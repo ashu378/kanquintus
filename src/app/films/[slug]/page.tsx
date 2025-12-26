@@ -151,7 +151,7 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-sans">
+        <div className="min-h-screen bg-[#DBE3E5] text-[#100F0F] font-sans">
 
             {/* Hero Section */}
             <section className="relative min-h-[80vh] w-full flex flex-col justify-end overflow-hidden">
@@ -164,14 +164,14 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                         className="object-cover opacity-40"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#DBE3E5] via-[#DBE3E5]/70 to-transparent" />
                 </div>
 
                 {/* Back Link */}
                 <div className="absolute top-24 left-6 md:left-12 z-20">
                     <Link
                         href="/films"
-                        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#100F0F]/50 hover:text-[#100F0F] transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Work
@@ -184,7 +184,7 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-sm font-bold uppercase tracking-widest text-white/50 mb-4"
+                        className="text-sm font-bold uppercase tracking-widest text-[#100F0F]/50 mb-4"
                     >
                         {film.genre} — {film.year}
                     </motion.p>
@@ -202,7 +202,7 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
             </section>
 
             {/* Details Section */}
-            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/10">
+            <section className="py-24 md:py-32 px-6 md:px-12 border-t border-[#100F0F]/10">
                 <div className="grid md:grid-cols-12 gap-12 md:gap-24">
 
                     {/* Synopsis */}
@@ -214,7 +214,7 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="space-y-6"
                         >
-                            <h2 className="text-xs font-bold uppercase tracking-widest text-white/50">Synopsis</h2>
+                            <h2 className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/50">Synopsis</h2>
                             <p className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">
                                 {film.synopsis}
                             </p>
@@ -229,11 +229,11 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                                 transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                                 className="space-y-6"
                             >
-                                <h2 className="text-xs font-bold uppercase tracking-widest text-white/50">Awards & Recognition</h2>
+                                <h2 className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/50">Awards & Recognition</h2>
                                 <ul className="space-y-3">
                                     {film.awards.map(award => (
-                                        <li key={award} className="text-lg text-white/80 flex items-center gap-3">
-                                            <span className="w-2 h-2 bg-red-500 rounded-full" />
+                                        <li key={award} className="text-lg text-[#100F0F]/80 flex items-center gap-3">
+                                            <span className="w-2 h-2 bg-red-600 rounded-full" />
                                             {award}
                                         </li>
                                     ))}
@@ -252,26 +252,26 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                     >
                         <div className="space-y-6">
                             <div>
-                                <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Status</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2">Status</p>
                                 <p className="text-xl font-bold">{film.status}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Duration</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2">Duration</p>
                                 <p className="text-xl font-bold">{film.duration}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Role</p>
-                                <p className="text-xl font-bold text-red-500">{film.role}</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2">Role</p>
+                                <p className="text-xl font-bold text-red-600">{film.role}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Director</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2">Director</p>
                                 <p className="text-xl font-bold">{film.credits.director}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Cast</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2">Cast</p>
                                 <div className="flex flex-wrap gap-2">
                                     {film.credits.cast.map(c => (
-                                        <span key={c} className="text-sm text-white/70 bg-white/5 px-3 py-1 rounded-sm">{c}</span>
+                                        <span key={c} className="text-sm text-[#100F0F]/70 bg-[#100F0F]/5 px-3 py-1 rounded-sm">{c}</span>
                                     ))}
                                 </div>
                             </div>
@@ -281,22 +281,53 @@ export default function FilmDetailPage({ params }: { params: Promise<{ slug: str
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="py-24 px-6 md:px-12 border-t border-white/10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="space-y-6"
-                >
-                    <Link
-                        href="/films"
-                        className="inline-flex items-center gap-2 text-lg font-bold text-white/50 hover:text-white transition-colors group"
+            {/* CTA / Next Project */}
+            <section className="py-24 px-6 md:px-12 border-t border-[#100F0F]/10">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
                     >
-                        View All Work
-                        <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                    </Link>
-                </motion.div>
+                        <Link
+                            href="/films"
+                            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#100F0F]/50 hover:text-[#100F0F] transition-colors group"
+                        >
+                            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                            View All Work
+                        </Link>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="text-right"
+                    >
+                        {(() => {
+                            const filmKeys = Object.keys(films);
+                            const currentIndex = filmKeys.indexOf(slug);
+                            const nextIndex = (currentIndex + 1) % filmKeys.length;
+                            const nextSlug = filmKeys[nextIndex];
+                            const nextFilm = films[nextSlug];
+
+                            return (
+                                <Link
+                                    href={`/films/${nextSlug}`}
+                                    className="inline-block group"
+                                >
+                                    <span className="block text-xs font-bold uppercase tracking-widest text-[#100F0F]/40 mb-2 group-hover:text-[#100F0F] transition-colors">
+                                        Next Project
+                                    </span>
+                                    <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#100F0F] group-hover:text-red-600 transition-colors flex items-center gap-4 justify-end">
+                                        {nextFilm.title}
+                                        <ArrowUpRight className="w-8 h-8 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2" />
+                                    </span>
+                                </Link>
+                            );
+                        })()}
+                    </motion.div>
+                </div>
             </section>
 
         </div>

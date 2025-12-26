@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 export function SiteHeader() {
     const { scrollY } = useScroll();
     const pathname = usePathname();
-    const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films");
+    const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films") || pathname === "/mabanda";
     const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,7 +57,9 @@ export function SiteHeader() {
                 animate={hidden ? "hidden" : "visible"}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen
-                    ? (isLightPage ? `bg-${pathname?.startsWith("/films") ? "[#FCF6F4]" : "[#E5E5E5]"}/50 backdrop-blur-md border-b border-[#100F0F]/10` : "bg-black/50 backdrop-blur-md border-b border-white/5")
+                    ? (isLightPage
+                        ? `bg-${pathname?.startsWith("/films/") || pathname === "/mabanda" ? "[#DBE3E5]" : pathname === "/films" ? "[#FCF6F4]" : "[#E5E5E5]"}/50 backdrop-blur-md border-b border-[#100F0F]/10`
+                        : "bg-black/50 backdrop-blur-md border-b border-white/5")
                     : "bg-transparent"
                     }`}
             >
