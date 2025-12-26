@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search, Menu, X } from "lucide-react";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -12,19 +11,12 @@ export function SiteHeader() {
     const isLightPage = pathname?.startsWith("/contact") || pathname?.startsWith("/films") || pathname === "/mabanda";
     const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const textColor = isLightPage ? "text-[#100F0F]" : "text-white";
     const borderColor = isLightPage ? "border-[#100F0F]/30" : "border-white/30";
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
-
-        // If menu is open, don't hide the header
-        if (isMenuOpen) {
-            setHidden(false);
-            return;
-        }
 
         // Determine scroll direction and threshold
         if (latest > previous && latest > 150) {
@@ -41,90 +33,44 @@ export function SiteHeader() {
         }
     });
 
-    const menuLinks = [
-        { href: "/", label: "Bio" },
-        { href: "/films", label: "Work" },
-        { href: "/contact", label: "Contact" },
-    ];
+
+
 
     return (
-        <>
-            <motion.header
-                variants={{
-                    visible: { y: 0 },
-                    hidden: { y: "-100%" },
-                }}
-                animate={hidden ? "hidden" : "visible"}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className={`fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 py-6 flex items-center justify-between transition-colors duration-300 ${scrolled || isMenuOpen
-                    ? (isLightPage
-                        ? `bg-${pathname?.startsWith("/films/") || pathname === "/mabanda" ? "[#DBE3E5]" : pathname === "/films" ? "[#FCF6F4]" : "[#E5E5E5]"}/50 backdrop-blur-md border-b border-[#100F0F]/10`
-                        : "bg-black/50 backdrop-blur-md border-b border-white/5")
-                    : "bg-transparent"
-                    }`}
-            >
-                {/* Logo - Hidden on Mobile if not scrolled */}
-                <Link href="/" className={`z-[70] transition-opacity duration-500 ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`} onClick={() => setIsMenuOpen(false)}>
-                    <span className={`text-xl font-bold tracking-tighter ${textColor} ${isLightPage ? '' : 'mix-blend-exclusion'}`}>KQ</span>
+        <motion.header
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: "-100%" },
+            }}
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="fixed top-0 left-0 right-0 z-[60] px-6 md:px-12 pt-20 pb-20 md:pt-[112px] md:pb-[112px] flex items-center justify-between bg-transparent pointer-events-none"
+        >
+            {/* Left: Bio & Work */}
+            <nav className="flex items-center gap-4 md:gap-8 pointer-events-auto">
+                <Link
+                    href="/"
+                    className={`text-base md:text-[17.4px] transition-colors ${textColor} hover:opacity-50`}
+                >
+                    Bio
                 </Link>
+                <Link
+                    href="/films"
+                    className={`text-base md:text-[17.4px] transition-colors ${textColor} hover:opacity-50`}
+                >
+                    Work
+                </Link>
+            </nav>
 
-                {/* Navigation (Desktop & Mobile Minimal) */}
-                <nav className={`absolute left-0 right-0 md:relative md:flex items-center justify-center gap-8 transition-all duration-500 ${scrolled ? 'hidden md:flex' : 'flex'}`}>
-                    {menuLinks.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors ${textColor} hover:opacity-70 ${!scrolled && !isMenuOpen ? `border-b ${borderColor} pb-1` : ''}`}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
-                </nav>
-
-                {/* Actions */}
-                <div className="flex items-center gap-6 z-[70]">
-                    <button className={`${textColor} hover:opacity-70 transition-colors ${!scrolled && !isMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}>
-                        <Search className="w-5 h-5" />
-                    </button>
-                    <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`md:hidden ${textColor} hover:opacity-70 transition-colors ${scrolled || isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                        aria-label="Toggle Menu"
-                    >
-                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </button>
-                </div>
-            </motion.header>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, x: "100%" }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: "100%" }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 z-[55] bg-black flex flex-col items-center justify-center space-y-8 h-screen w-screen"
-                    >
-                        {menuLinks.map((link, i) => (
-                            <motion.div
-                                key={link.href}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 + i * 0.1 }}
-                            >
-                                <Link
-                                    href={link.href}
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className={`text-[12vw] font-black uppercase tracking-tighter text-white hover:text-white/70`}
-                                >
-                                    {link.label}
-                                </Link>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
+            {/* Right: Contact */}
+            <div className="flex items-center gap-4 md:gap-6 z-[70] pointer-events-auto">
+                <Link
+                    href="/contact"
+                    className={`text-base md:text-[17.4px] transition-colors ${textColor} hover:opacity-50`}
+                >
+                    Contact
+                </Link>
+            </div>
+        </motion.header>
     );
 }

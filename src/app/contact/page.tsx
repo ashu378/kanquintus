@@ -127,16 +127,7 @@ export default function ContactPage() {
                 </div>
             </div>
 
-            <div className="mt-32 flex justify-between items-end text-[10px] uppercase tracking-widest text-[#100F0F]/30">
-                <p>All Rights Reserved © {new Date().getFullYear()}</p>
-                <p className="hidden md:block">Kang Quintus x Agentic</p>
-                <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="hover:text-[#100F0F]/50 transition-colors"
-                >
-                    ↑ Back to top
-                </button>
-            </div>
+
 
         </div>
     );
